@@ -6,4 +6,4 @@
 ### Web
 
 - [Cookie](https://github.com/dlatldhs/mind-palace/blob/main/web/Cookie.md)
-- [URI]()
+- [URI](https://github.com/dlatldhs/mind-palace/blob/main/web/URI.md)
