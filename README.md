@@ -7,3 +7,4 @@
 
 - [Cookie](https://github.com/dlatldhs/mind-palace/blob/main/web/Cookie.md)
 - [URI](https://github.com/dlatldhs/mind-palace/blob/main/web/URI.md)
+- [Encoding 과 Encryption]()
