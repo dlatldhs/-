@@ -10,3 +10,4 @@
 - [URI](https://github.com/dlatldhs/mind-palace/blob/main/web/URI.md)
 - [Encoding 과 Encryption](https://github.com/dlatldhs/mind-palace/blob/main/web/Encoding%26Encrypthion.md)
 - [REquest & Response](https://github.com/dlatldhs/mind-palace/blob/main/web/Re:zero.md)
+- [Background : HTTP / HTTPS](https://github.com/dlatldhs/mind-palace/blob/main/web/HTTP/HTTPS.md)
