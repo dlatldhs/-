@@ -27,3 +27,23 @@
 > so 서비스 포트를 표현할 때에 전송 게층도 같이 표기하는 경우가 많다.<br>
 > 또 예를 들자면<br>
 > HTTP 가 서비스 하고 있는 서비스 포트가 `TCP / 80` 이다. -> HTTP 를 80 포트에서 TCP 형태로 제공하고 있다 라는 뜻으로 해석 가능
+
+## Request 와 Response 대략적인 형태
+
+### Request
+> `GET` `/index.html` `HTTP/1.1` // HTTP Method Requset URL HTTP Version<br>
+> Host : ~~~ <br>
+> Connection : keep-alive<br>
+> User-Agent: Mozilla/5.0<br>
+> 대충 이런 식으로 생김
+### Response
+> `HTTP/1.1` `200 OK`<br>
+> Response Header<br>
+> Response Body<br>
+> 헤더랑 바디 부분으로 나눌 수 있음 Response 는 HTTP Version 이랑 Return status(상태)를 받음
+
+## HTTP 메시지
+> HTTP 에는 2가지가 있다. -> Request & Response<br>
+> 이 둘은 기능 과 구조에서는 차이가 있지만 HTTP head / body 로 구성된다는 교집합이 존재한다.<br>
+> ##### http head 의 각줄은 `CRLF`(Carriage Return Line Feed)로 구분됨<br>
+> #### (head의)첫 줄은 `시작줄(Start-line)` 나머지는 `Header`라고 부름 시작줄(Start-line)은 Request 와 Response에서 큰 차이 존재
