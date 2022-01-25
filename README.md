@@ -13,4 +13,4 @@
 - ##### [Background : HTTP / HTTPS](https://github.com/dlatldhs/mind-palace/blob/main/web/HTTP%26HTTPS.md)
 
 ### 기타
-- ##### [넷플릭스 & 와챠]()
+- ##### [넷플릭스 & 와챠_tip]()
