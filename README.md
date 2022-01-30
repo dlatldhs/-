@@ -11,6 +11,7 @@
 - ##### [Encoding 과 Encryption](https://github.com/dlatldhs/mind-palace/blob/main/web/Encoding%26Encrypthion.md)
 - ##### [REquest & Response](https://github.com/dlatldhs/mind-palace/blob/main/web/Re:zero.md)
 - ##### [Background : HTTP / HTTPS](https://github.com/dlatldhs/mind-palace/blob/main/web/HTTP%26HTTPS.md)
+- ##### [Browser]()
 
 ### 기타
 - ##### [Web Brower graphic error](https://github.com/dlatldhs/mind-palace/blob/main/etc/netflix&watch_tip.md)
