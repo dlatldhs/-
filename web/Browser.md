@@ -31,3 +31,11 @@ Domain에 대한 정보는 cmd 에서 `nslookup` 명령어를 통해서 알 수 
 $ nslookup example.com<br>
 Server:		8.8.8.8<br>
 Address:	8.8.8.8#53<br>
+
+#### 웹 렌더링(서버로부터 받은 리소스(Resource)를 시각화 하는 행위)
+
+### KEYWORD
+###### 웹 브라우저<br>HTTP/S로 사용자와 웹 서버의 통신을 중개 및 랜더링함 사용자를 도와줌
+###### URL(Uniform Resource Locator)리소스(Resource)의 위치를 나타내는 문자열 브라우저가 이걸로 특정 리소스를 서버에 요청함
+##### DNS(Domain Name Server) Host 의 도메인 이름을 IP 로 변환하거나 IP를 도메인 이름으로 변환함
+##### 웹 렌더링(Weeb Rendering) 서버로 부터 받은 리소스를 사용자에게 시각화하는 것
