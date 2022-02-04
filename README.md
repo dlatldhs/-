@@ -12,6 +12,6 @@
 - ##### [REquest & Response](https://github.com/dlatldhs/mind-palace/blob/main/web/Re:zero.md)
 - ##### [Background : HTTP / HTTPS](https://github.com/dlatldhs/mind-palace/blob/main/web/HTTP%26HTTPS.md)
 - ##### [Browser](https://github.com/dlatldhs/mind-palace/blob/main/web/Browser.md)
-
+- ##### [Session](https://github.com/dlatldhs/mind-palace/blob/main/web/Session.md)
 ### 기타
 - ##### [Web Brower graphic error](https://github.com/dlatldhs/mind-palace/blob/main/etc/netflix&watch_tip.md)
