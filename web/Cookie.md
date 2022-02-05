@@ -31,3 +31,20 @@ So Modern Storage APIs를 통해 데이터 저장 방식을 권장함
 
 ### 쿠키 변조
 쿠키는 클라이언트의 브라우저에 저장되고 요청에 포함되는 정보 --> 변조 가능함 KEY = Value 정보를 사칭해서 서버에 요청할 수도 있어서 변조가 가능함(서버가 별 다른 검증 없이 쿠키를 토해 이용자의 인증 정보를 확인한다면)
+
+### 쿠키 사용법
+#### Server
+HTTP 응답 중 헤더에 쿠키 설정 헤더 (Set-Cookie)를 추가하면 클라이언트의 브라우저가 쿠키를 설정함
+```
+HTTP/1.1 200 OK
+Server: Apache/2.4.29 (Ubuntu)
+Set-Cookie: name=test;
+Set-Cookie: age=30; Expires=Fri, 30 Sep 2022 14:54:50 GMT;
+...
+```
+#### Client
+JS를 이용해 쿠키를 설정해줌
+```
+document.cookie = "name=test;"
+document.cookie = "age=30; Expires=Fri, 30 Sep 2022 14:54:50 GMT;"
+```
