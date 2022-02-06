@@ -52,3 +52,6 @@ document.cookie = "age=30; Expires=Fri, 30 Sep 2022 14:54:50 GMT;"
 `cookie` 는 `client` 에 저장됨 -> `client`는 쿠키 조회/수정/추가 가능함<br>
 `client` 가 서버에 Request(요청)할 때 저장된 cookie 를 요청 헤더에 넣어서 전송함 -> 사용자가 요청을 보낼 때 쿠키 헤더 변조 가능함<br>
 <b>쿠키</b> 설정할 때 만료 시간 지정가능하고 만료 시간 이후에는 클라이언트에서 삭제됨(쿠키가)<br>
+##### 쿠키 보는법
+`F12` or 검사 해서 console 창에서 `document.cookie`하면 쿠키를 볼 수 있다. 하지만 쿠키 옵션에 따라서 안 보일 수도 있다.
+Application에서 cookie 확인 가능함
