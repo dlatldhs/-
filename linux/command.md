@@ -10,3 +10,12 @@ CD ~ --> home으로 가는거임<br>ex)
 - 어디서든 사용 가능함 path 있어서
 - 프로그램중 하나
 - 서버에서 내가 필요한 프로그램을 다운 받는거
+
+#### 파일 권한
+<img src = https://mingzz1.github.io/images/linux/permission/permission_01.png />
+User = 생성자
+Group = 생성자랑 같은 그룹 
+Other = 다른 사람
+R = Read 읽는거
+W = Write 쓰는거
+X = Excute 실행하는거
