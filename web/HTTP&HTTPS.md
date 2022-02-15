@@ -62,3 +62,7 @@
 ##### 5xx 클라이언트의 요청은 유효하지만, 서버에 에러가 발생하여 처리에 실패했습니다.
 ##### > 500: 요청을 처리하다가 에러가 발생함
 ##### > 503: 서버가 과부하로 인해 요청을 처리할 수 없음
+
+### TCP 전송 제어 프로토콜(Transmission Control Protocol)
+데이터 전송에 신뢰성을 더하기 위해서 데이터를 세그먼트 단위로 분할/전송 속도를 조절/데이터가 제대로 전달되지 않았을 경우 재전송을 함/
+<img src = https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcWdRU5%2FbtqyG8S8RUb%2FrlFpJ3V9MlVmu3HXxJM2g1%2Fimg.png />
