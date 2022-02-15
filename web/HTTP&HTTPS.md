@@ -65,4 +65,4 @@
 
 ### TCP 전송 제어 프로토콜(Transmission Control Protocol)
 데이터 전송에 신뢰성을 더하기 위해서 데이터를 세그먼트 단위로 분할/전송 속도를 조절/데이터가 제대로 전달되지 않았을 경우 재전송을 함/
-<img src = https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcWdRU5%2FbtqyG8S8RUb%2FrlFpJ3V9MlVmu3HXxJM2g1%2Fimg.png />
+<img src = https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/TCP_CLOSE.svg/260px-TCP_CLOSE.svg.png />
