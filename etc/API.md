@@ -17,8 +17,8 @@
  
 ###### JSON 접근방법
 ```
-data = {"number":1,"운동":['농구','축구'],"음식":{"한식":"김밥","중식","짜장면"}}
-data."number"  		        result => 1
-data." 운동"[1]  		result =>"축구"
-data."음식"."중식"  	        result => 짜장면
+data = {"number":1,"운동":['농구','축구'],"음식":{"한식":"김밥","중식":"짜장면"}}
+data.number  		        result => 1
+data.운동[1]  	  	        result =>"축구"
+data.음식.중식  	        result => 짜장면
 ```
