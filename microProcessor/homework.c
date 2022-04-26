@@ -1,68 +1,81 @@
 #include <stdio.h>
-#include<stdlib.h>
-
-#define Gi 32
-
-char string_const[32];
-
-typedef struct DATE_INTEGER {
+#include <stdlib.h>
+#include <stdbool.h>
+typedef struct{
     /* data */
-    unsigned int d0:1,
-                 d1:1,
-                 d2:1,
-                 d3:1,
-                 d4:1,
-                 d5:1,
-                 d6:1,
-                 d7:1;// Most Significant Bit
-}DATE_INTEGER;
+    unsigned int d0:1, d1:1, d2:1, d3:1, d4:1, d5:1, d6:1, d7:1,
+        d8:1, d9:1, d10:1, d11:1, d12:1, d13:1, d14:1, d15:1,
+        d16:1, d17:1, d18:1, d19:1, d20:1, d21:1, d22:1, d23:1,
+        d24:1, d25:1, d26:1, d27:1, d28:1, d29:1, d30:1, d31:1;// Most Significant Bit
+} bit_t;
 
-typedef struct DATE_DOUBLE {
+typedef struct{
     /* data */
-    unsigned int m0:1,m1:1,m2:1,m3:1,m4:1,m5:1,m6:1,m7:1,m8:1,m9:1,m10:1,m11:1,m12:1,m13:1,m14:1,m15:1,m16:1,m17:1,m18:1,m19:1,m20:1,m21:1,m22:1,
-                 e23:1,e24:1,e25:1,e26:1,e27:1,e28:1,e29:1,e30:1,
-                 s31:1;
-}DATE_DOUBLE;
+    unsigned int m:23,// 소ㅜㅅ
+                 e:8,// 지수
+                 s:1;// selector
+} float_t;
 
-typedef union INTT {
-    DATE_INTEGER _ai;
-    int hpi;
-}INTT;
+typedef enum{
+    TYPE_INTT,
+    TYPE_FLOAT
+} type_t;
 
-typedef union DOU {
-    DATE_DOUBLE _af;
-    float hpf;
-}DOU;
+int printing(void *n,char tem, type_t type){
+    bit_t *p = (bit_t *)n;
 
-void printing_INT(INTT v){
-    printf("%d%d%d%d-%d%d%d%d",v._ai.d7,v._ai.d6,v._ai.d5,v._ai.d4,v._ai.d4,v._ai.d3,v._ai.d2,v._ai.d1,v._ai.d0);
-}
-void printing_DOU(DOU v){
-    printf("%d-%d%d%d%d%d%d%d%d-%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d",v._af.s31, v._af.e30,v._af.e29,v._af.e28,v._af.e27,v._af.e26,v._af.e25,v._af.e24,v._af.e23,v._af.m22,v._af.m21,v._af.m20,v._af.m19,v._af.m18,v._af.m17,v._af.m16,v._af.m15,v._af.m14,v._af.m13,v._af.m12,v._af.m11,v._af.m10,v._af.m9,v._af.m8,v._af.m7,v._af.m6,v._af.m5,v._af.m4,v._af.m3,v._af.m2,v._af.m1,v._af.m0);
-}
-
-int main() {
-    char read_string[32]={};
-    INTT result_I;
-    DOU result_D;
-    int M=31,total=0;
-    scanf("%s",read_string);
-    result_I.hpi = atoi(read_string);
-    result_D.hpf = atof(read_string);
-
-    for (int i = 0; i < Gi; i++) {
-        if ( read_string[i] == '.') {
-            M--;
-        }
+    if (type == TYPE_INTT) {
+        sprintf(tem, "%d%d%d%d-%d%d%d%d",p->d7, p->d6, p->d5, p->d4, p->d3, p->d2, p->d1, p->d0);    
     }
 
-    if ( M < 31 ) {
-        printing_DOU( result_D );
+    else if ( type == TYPE_FLOAT ) {
+        float_t *cfloat = (float_t *)n;
+        sprintf(tem, "%d:%d%d%d%d-%d%d%d%d:%d%d%d-%d%d%d%d-%d%d%d%d-%d%d%d%d-%d%d%d%d-%d%d%d%d (%d:%d)",// 지수 가수
+                        p->d31, 
+                        p->d30, p->d29, p->d28, p->d27, p->d26, p->d25, p->d24, p->d23,
+                        p->d22, p->d21, p->d20, p->d19, p->d18, p->d17, p->d16, p->d15,
+                        p->d14, p->d13, p->d12, p->d11, p->d10, p->d9, p->d8, p->d7,
+                        p->d6, p->d5, p->d4, p->d3, p->d2, p->d1, p->d0,
+                        cfloat->e, cfloat->m);    
     }
 
     else {
-        printing_INT( result_I );
+        return -1;
     }
+
+    return 0;
+    
+}
+
+int main() {
+    char int_data;
+    float float_data;
+    char tem[64],n[64];
+
+    do {
+        scanf("%s",n);// n = char 형 & 필요 X
+
+        char *tes = strstr(n,".");// if (.) -> null else -> anything
+        
+        if ( tes != NULL ) {// .이 있다면 -> float
+            
+            if ( strstr(tes+1,".") != NULL) {// tes = * variable so tes + 1 => memory address + 1(char type)byte
+                break;
+            }// shutdown
+
+            float_data = (float)afof(n);// n = char
+            printing( &float_data, tem, TYPE_FLOAT); // float_data 주소 넘김, tem 으로 표준 출력 할거임, 위에서 float라는 거 인지 했으니까 type_float 
+
+        }
+
+        else {// 위에서 float 인거 거르니까 여기는 정수
+            int_data = (char)atoi(n);// 정수인데 int로 하는건 char 은 1byte int는 4byte라서
+            printing(&int_data, tem, TYPE_INTT);
+
+        }
+
+        printf("%s\n",tem);// tem은 위에 printing 에서 문자열이 안에 들어감
+    }while(true);
 
     return 0;
 }
