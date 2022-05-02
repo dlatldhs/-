@@ -13,5 +13,9 @@
 - ##### [Background : HTTP / HTTPS](https://github.com/dlatldhs/mind-palace/blob/main/web/HTTP%26HTTPS.md)
 - ##### [Browser](https://github.com/dlatldhs/mind-palace/blob/main/web/Browser.md)
 - ##### [Session](https://github.com/dlatldhs/mind-palace/blob/main/web/Session.md)
+### OS
+- ##### [RTOS](https://github.com/dlatldhs/mind-palace/blob/main/OS/RTOS.md)
+- ##### [프로세스](https://github.com/dlatldhs/mind-palace/blob/main/OS/process.md)
+- ##### [프로세서](https://github.com/dlatldhs/mind-palace/blob/main/OS/processor.md)
 ### 기타
 - ##### [Web Brower graphic error](https://github.com/dlatldhs/mind-palace/blob/main/etc/netflix&watch_tip.md)
