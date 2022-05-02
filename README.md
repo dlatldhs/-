@@ -19,3 +19,6 @@
 - ##### [프로세서](https://github.com/dlatldhs/mind-palace/blob/main/OS/processor.md)
 ### 기타
 - ##### [Web Brower graphic error](https://github.com/dlatldhs/mind-palace/blob/main/etc/netflix&watch_tip.md)
+- ##### [1진수 와 2진수](https://github.com/dlatldhs/mind-palace/blob/main/etc/1%EC%A7%84%EC%88%98%EC%99%802%EC%A7%84%EC%88%98%EC%97%90%EB%8C%80%ED%95%98%EC%97%AC.txt)
+- ##### [API](https://github.com/dlatldhs/mind-palace/blob/main/etc/API.md)
+- ##### [Memory 에 대해서](https://github.com/dlatldhs/mind-palace/tree/main/etc/memory)
