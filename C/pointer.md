@@ -25,3 +25,9 @@ sizeof(int) 하면 int 크기가 나옴 즉 int 크기 만큼 *2 해서 메모�
 
 p+1 = p + sizeof(int) * 1 이거도 비슷한 원리
 ```
+
+#### int* char* float*의 차이점
+1. `int *a` 이거는 int형 주소를 저장하는거<br>
+2. `char *a` 이건 char형 주소를 저장하는 변수<br>
+3. `float *a` 이거는 float형 주소를 저장하는 변수<br>
+다 역할이 다름 알고 있는게 중요함
