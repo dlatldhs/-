@@ -22,3 +22,4 @@
 - ##### [1진수 와 2진수](https://github.com/dlatldhs/mind-palace/blob/main/etc/1%EC%A7%84%EC%88%98%EC%99%802%EC%A7%84%EC%88%98%EC%97%90%EB%8C%80%ED%95%98%EC%97%AC.txt)
 - ##### [API](https://github.com/dlatldhs/mind-palace/blob/main/etc/API.md)
 - ##### [Memory 에 대해서](https://github.com/dlatldhs/mind-palace/tree/main/etc/memory)
+- ##### [롤에서 누가 채팅을 막을 때](https://github.com/dlatldhs/mind-palace/blob/main/etc/leagueoflegends_error.md)
