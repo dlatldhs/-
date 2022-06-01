@@ -1,0 +1,86 @@
+2022-05-24 micro processor class
+GPIO output
+- output push pull(OPP)
+- output open drain(OOD)
+
+GPIO input
+- pull-up
+- pull-down
+(외부에 정의되어 있으면 사용하지 않음)
+
+* 도선도 매우 작은 저항임 -> 배터리에 도선만 연결해도 도선이 매우작은 저항이라서 전기가 흐름
+
+* 저항(전압을 위해) --> 전압 : 전위차 -> 전류 :전기의 흐름
+저항이 있어야 전압이 생기고 전압이 있어야 전류가 생김
+
+* 관점에 따라서 개념은 상대적임
+
+AMBA Protocol
+- Advanced System Bus(ASB)
+	- 주변장치 제어가능
+	- 저전력에서 주변장치 in/out put 제어만 필요할 때 자주 사용됨
+- Advanced Peripheral Bus(APB)
+	- 높은 주파수, 파이프라인, 다수의 버스 마스터, 연속 전송 기능
+	- 양방향 버스 구조 
+	- 프로세서와 메모리를 연결하는 고속버스 ASB 양방향 구조 이후 다중 버스로 바뀐 AHB가 쓰이게 됨
+
+AHB (Advanced High-performance Bus) : ASB의 업글된 버젼 ASB 기능 포함 및 양방향 --> 병목현상 but 데이터 교환 빠름
+AHB 를 통해서 stm32f103xx blockdiagram 의 GPIO A Port 에 접근을 할 수 있음
+
+* GPIO A PORT 에 접근하는 방법 ( GPIO 포트 접근 )
+1. AHB 버스에 접근을 함(등록부)
+2. PORT A 를 선택함
+
+
+참고) Peripheral 은 주변장치를 뜻함
+
+RCC_AHB1ENR
+RCC AHB1 peripheral(주변장치) clock(클럭) enable register (RCC_AHB1ENR)
+
+Reset value: 0x0000 0000 -> x 가 붙으면 hex 16진수 , b 가 붙으면 2진수
+0~31 -> 32개
+
+이제 이 레지스터가 GPIO port 인 것 같은데 이거를 enable 시킬려면 OR 연산자가 필요함 --> OR 연산자를 사용해야만 다른 것을 건들이지 않고 내가 원하는 것만 enable 시킬 수 있음
+0 | 0 => 0 
+0 | 1 => 1
+
+LSB 제일 작은 쪽 비트 (하위 비트)
+
+
+GPIO 입출력을 다루기 위해서 최소 2가지 레지스터를 건들여야함
+
+GPIO port mode register (GPIOx_MODER) (x = A..E and H)
+rigister 전부 다 bit 연산이 필요한 것 같음
+
+RCC->ABHB1ENR |=1 -> 이렇게 하면 OR 시켜서 1로 바꾼다는거임
+
+RCC->ABHB1ENR = 1 -> 이렇게 적지 않음 이렇게 하면
+이것만 1이고 전부다 0이라는 뜻이 되어버림
+
+그래서 어떤 값을 죽여버리기 때문에 이렇게 적지 않음
+어짜피 전부다 처음에 리셋되서 0이긴 한데 나중에 어떤 값을 설정해놓는 다면 그 값을 죽여버림
+
+mode register
+GPIOA->MODER |= 0x400;   == GPIOA->MODER |= 0x00000400 이거랑 같음
+
+
+용어
+flating
++/- 도 아닌 아무것도 동작이 연결 되어 있지 않은 상태를 뜻함
+
+GPIO -> 는 하나의 PORT 로 관리됨{ A port -> 0~15 pin(16개)
+					B port -> 0~15 pin(16개)
+					~
+					G port -> 0~15 pin(16개)
+
+GPIO 하나당 7개의 register
+pin 하나당 4bit 사용
+
+CRL : 하위 포트의 설정을 맡음 (Configureation Register Low) 
+CRH : 상위 포트의 설정을 맡음 (Configureation Register High)
+
+IDR  : Data Register (input) Input data Register
+ODR : Data Register (output) Ouput data Register
+
+BSRR : bit set/reset Register
+BRR  : bit Reset Register 
