@@ -1,0 +1,49 @@
+2022-06-21 micro processor
+
+이번에 배울 기술
+: PWM( 가장 많이 쓰임 )
+
+C14 C15 내부 클럭
+
+PB3 : 출력하게 해주는거
+
+VDD : 3.3 or 5 V
+VSS : ground
+
+이게 다 떨어져 있는 이유
+다 장치들이 떨어져 있음 => 되도록이면 가까운 곳에서 전류를 받음 좋음음
+그래서 나눠서 줌
+
+VSSA : analog 전원 
+VDDA : analog 전원
+외부에 ADC
+
+주황색 : 겹처서 에러 날 수도 있다
+녹색 : 부팅 시 되는거
+아이보리색 : 변하면 안됨
+
+앞에 N이 있으면 NOT (Active-low) 
+
+HSI 내부 고속 클럭
+HSE 순수 클럭 그대로
+PLL 클럭 HSE 로 받은 걸 PLL을 통해 가공이 됨(가공된 클럭)
+
+system clock : 최종 클럭
+: 이걸로 cpu(core) 줌
+근데 대부분 AHB 버스에 연결됨
+그리고 여기 안에 APB 도 붙음
+
+/* /1 는 낮추지 않는거 */
+
+AHB prescaler : 소비 전력 낮추는거
+이런 걸 제대로 하지 않으면 1달 사용할 배터리를
+1주일만에 다 써버리 수도 있음
+
+주변 장치에는 HCK PCK
+
+for (int i = 0; i < 1000; i+=10 ) {  // 100 
+    	tim3.Instance->CCR1 = i; // /* capture campare register */
+    	HAL_Delay(10);// 10 ms
+    }
+
+Duty Cycle = period - (period/100)*
