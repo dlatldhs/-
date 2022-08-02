@@ -1,5 +1,7 @@
 
 ####
+from msilib import type_binary
+from tkinter import Image
 import flask ## 
 from flask import request
 from flask import Flask , render_template , url_for
@@ -7,6 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 import PIL
+from PIL import Image
 from flask import request
 import tensorflow as tf
 
@@ -30,7 +33,42 @@ def result():
 
 @app.route('/gpp', methods=['GET','POST'])
 def result1():
-    return str(request.form)
+
+    img_height = 180
+    img_width = 180
+    class_names = ['daisy', 'dandelion', 'roses', 'sunflowers', 'tulips']
+
+    # load model
+    model = tf.keras.models.load_model('model_save2.h5')
+
+    result1 = request.files['chooseFile']
+    result1.save('./static/imgs/'+ 'a.jpg') #str(result1.filename)
+    
+    img_path = os.path.dirname(os.path.abspath('__file__'))
+    img_path += r'/static/imgs/a.jpg'
+    im = Image.open(img_path)
+    # print(im)
+    # img = tf.keras.utils.load_img(
+    #     result1, target_size=(img_height, img_width)
+    #     )
+    # print(im.size) # 550,557 size 크기가 안맞아서 predictions 할 때 에러 걸림
+    resized_img = im.resize( (img_width , img_height) )
+    # print('this is resized_img: ')
+    # print(resized_img) # <PIL.Image.Image image mode=RGB size=180x180 at 0x2611C4D82B0>
+    img_array = tf.keras.utils.img_to_array(resized_img)
+    img_array = tf.expand_dims(img_array,0)
+    predictions = model.predict(img_array)
+    score = tf.nn.softmax(predictions[0])
+    
+    # 프린트
+    print(
+        "This image most likely belongs to {} with a {:.2f} percent confidence."
+        .format(class_names[np.argmax(score)], 100 * np.max(score))
+    )
+    
+    # 결과 html에 전달하기
+    Textttt = "This image most likely belongs to {} with a {:.2f} percent confidence.".format(class_names[np.argmax(score)], 100 * np.max(score))
+    return render_template('test.html',result1=result1,Textttt=Textttt)
 
 @app.route('/test2')
 def test2():
@@ -52,7 +90,10 @@ def predict():
     rose_path =  tf.keras.utils.get_file('Sunflower', origin=rose_url)
     img = tf.keras.utils.load_img(
         rose_path, target_size=(img_height, img_width)
-        )
+        ) ## img type PIL.image
+    # print(rose_path)
+    # print('this is img')
+    print(img) # <PIL.Image.Image image mode=RGB size=180x180 at 0x176E4AE39A0>
     img_array = tf.keras.utils.img_to_array(img)
     img_array = tf.expand_dims(img_array,0)
     predictions = model.predict(img_array)
