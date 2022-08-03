@@ -16,19 +16,10 @@
 #### <details markdown="1"><summary>동시성</summary><p>: 동시성 : 동시에 처리함 , 하지만 속도가 느려지지 않음 그렇다고 빨라지는 것도 아님<br>이게 뭔 소리냐? => 처리하는 인원이 늘어나면서 동시에 처리함 -> 작업량이 줄어듬 -> 시간이 줄어든거임<br>--->작업 효율이 올라감 작업량을 더 늘릴 수 있음</p></details>
 #### <details markdown="1"><summary>컨텀점프</summary><p>: 상위 개념을 보면 하위개념이 이해됨</p></details>
 #### <details markdown="1"><summary>경량 프로세스</summary><p>: 스레드 약간 그런 개념 가벼운 프로세스</p></details>
-#### <details markdown="1"><summary>파이프 라인(Pipeline)</summary><p>
-   ```
-    1단계 : Instruction Fetch
-     명령어를 메모리에서 가져옴
-    2단계 : Instruction Decode 
-    	명령어를 해석
-    3단계 : Execution 
-    	명령어 실행
-    4단계 : Memory access 
-    	특정 위치에 접근
-    5단계 : Write Back 
-    	레지스터에 다시 씀
-    ```</p></details>
+#### <details markdown="1"><summary>파이프 라인(Pipeline)</summary><p>1단계 : Instruction Fetch(명령어를 메모리에서 가져옴)<br>2단계 : Instruction Decode(명령어를 해석)<br>3단계 : Execution(명령어 실행)<br>4단계 : Memory access(특정 위치에 접근)<br>5단계 : Write Back(레지스터에 다시 씀)</p></details>
+#### <details markdown="1"><summary>HS</summary><p>- HSE(High speed External) : 높은 주파수의 클럭으로 PLL을 거쳐 System Clockd으로 입력된다.<br>- HSI(high speed Internal) : stm32 에 내장되어 있는 RC발진 회로로 전원 인가 시 처음 동작하는 Clock 이다.</p></details>
+#### <details markdown="1"><summary>LS</summary><p>- LSE(Low speed External) :RTC에 사용되는 CLock으로 정확한 시간을 맞추기 위한 용도로 사용된다.<br>- LSI(Low speed Internal) : 내장된 RC회로의 CLock 으로 저전력모드에서 동작이 가능하기에 Independent watchdog 과 AWU(auto wakeup)의 clock 으로 사용 가능함.</p></details>
+#### <details markdown="1"><summary>stm에서 동기와 비동기</summary><p>동기 : clock 신호가 같아야 통신되는거<br>비동기 : Async 방식 , 송수신간의 동기를 맞추지 않고 문자단위로 구분하여 전송하는 방식</p></details>
 ### 잡다한 것
 > #### 1. 헤더파일을 만드는 이유
 > ##### 컴파일러(compiler)가 c 파일을 컴파일(compile)할 때 하나 씩 컴파일을 하는데 만약 `다른 곳에 정의된 함수`를 쓴다면 에러가 걸리기 때문에 헤더파일을 주면서 `다른곳에 정의된 함수`가 <i>여기서 제대로 쓰인게 맞는건지 확인</i>만 하고 `컴파일에 에러가 없게 만들기 위해서` 헤더파일이 존재하는거임
