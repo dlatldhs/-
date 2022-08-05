@@ -20,6 +20,8 @@
 #### <details markdown="1"><summary>HS</summary><p>- HSE(High speed External) : 높은 주파수의 클럭으로 PLL을 거쳐 System Clockd으로 입력된다.<br>- HSI(high speed Internal) : stm32 에 내장되어 있는 RC발진 회로로 전원 인가 시 처음 동작하는 Clock 이다.</p></details>
 #### <details markdown="1"><summary>LS</summary><p>- LSE(Low speed External) :RTC에 사용되는 CLock으로 정확한 시간을 맞추기 위한 용도로 사용된다.<br>- LSI(Low speed Internal) : 내장된 RC회로의 CLock 으로 저전력모드에서 동작이 가능하기에 Independent watchdog 과 AWU(auto wakeup)의 clock 으로 사용 가능함.</p></details>
 #### <details markdown="1"><summary>stm에서 동기와 비동기</summary><p>동기 : clock 신호가 같아야 통신되는거<br>비동기 : Async 방식 , 송수신간의 동기를 맞추지 않고 문자단위로 구분하여 전송하는 방식</p></details>
+#### <details markdown="1"><summary>ADC</summary><p>: Analog senser Data 를 읽어주는 하드웨어</p></details>
+#### <details markdown="1"><summary>sampling</summary><p>1. sampling 이란?<br>일단 하드웨어 적으로 봤을 때 입력되는 값이 아날로그 값인데 이 아날로그 값이 0v ~ 3.3V 가되는데 이게 mcu로 가면 0 ~ 4095 단계로 나눔(12bit 임 &그리고 `디지털 값`이라서 4095단계로 나눈거)0부터 3.3v까지를를 0에서 4095단계로 나눔<br>아날로그 값을 디지털로 사용할 때 4096가지 중에 찾아야하는데 0부터(아니면 처음부터) 대입을 하면 오래 걸림 so 이진탐색을 함<br>이진 탐색을 해야 시간이 비교적 적음 but 시간 cpu 입장에서는 여전히 오래 걸림<br>이거를 `sampling time` 이라고 함 그래서 커패시터로 교류를 충전해서 비교함)<br>sampling time 을 짧게 주면 정확도가 낮아지지만 빠름<br>sampling time 을 많이 주면 정확도가 올라가지만 느림</p></details>
 ### 잡다한 것
 > #### 1. 헤더파일을 만드는 이유
 > ##### 컴파일러(compiler)가 c 파일을 컴파일(compile)할 때 하나 씩 컴파일을 하는데 만약 `다른 곳에 정의된 함수`를 쓴다면 에러가 걸리기 때문에 헤더파일을 주면서 `다른곳에 정의된 함수`가 <i>여기서 제대로 쓰인게 맞는건지 확인</i>만 하고 `컴파일에 에러가 없게 만들기 위해서` 헤더파일이 존재하는거임
@@ -36,3 +38,9 @@
 > ##### int *p : 메모리 접근 , 연산(대입,주소번지에 대한 증/감,역참조)
 > ##### int c[1] : 메모리에 접근함(대입,주소번지+오프셋),프로세스 연산
 > ##### int *d[1] : 메모리 접근 연산
+
+> #### 5. stm32 설정의 의미?
+> ##### STM32에서 
+> ##### A13 A14 -> debuging 해주는거
+> ##### PB3 -> 사용 안해도 되는거 print해주는 기능 보유
+> ##### PCC_OSC_IN / PCC_OSC_OUT -> 외부클럭 setting 해주는거
