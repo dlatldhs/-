@@ -48,3 +48,57 @@ ex)<br>
 int *p,*o,*i; ==> int형 포인터 변수 p,o,i 선언
 int* p, o, i; ==> int형 포인터 변수 p 선언 그리고 int 형 o,i 선언
 ```
+
+
+### 함수 포인터
+#### 알아야 될 것
+```C 에서 변수를 생성하면 변수가 메모리에 할당되며 메모리의 주소를 의미한다. 이는 함수도 똑같다.```
+<br>실행코드
+
+```
+#include <stdio.h>
+
+void print_hello()
+{
+    printf("Hello, world!\n");
+}
+
+int main()
+{
+    // 메모리 상에 저장된 함수의 주소값
+    printf("함수의 주소값 : %p\n", print_hello);
+
+    return 0;
+}
+```
+<a href="https://coding-factory.tistory.com/638">자료출처</a>
+
+#### 함수 포인터가 하는 일
+##### 특정 함수에 대한 메모리 주소를 담을 수 있는 것
+### 함수와 함수포인터의 차이점 ?
+
+#### 함수
+> ```
+> void fct( void )
+> {
+> 
+> }
+> int main()
+> {
+>   fct();                    // fct 함수를 call 해라는 뜻 ex) call 40052c;
+> }
+> ```
+
+#### 함수 포인터
+> ```
+> void fct( void )
+> {
+> 
+> }
+> int main()
+> {
+>   void (*p)(void) = &fct;   // 함수 포인터 선언  
+>   .....;
+>   (*p)();                   // fct(); 위에 있는 거랑 같은 의미
+> }
+> ```
