@@ -11,3 +11,16 @@
 #### 3. PWM 핀 설정
 > ##### Pinout 창에서 `PA7`을 선택하고 팝업창에 `TIM3_CH2`를 선택한다.(우클릭해서)<br>
 #### 4. Timmer PWM 설정
+> ##### `System Core` 에서 `Timers`를 선택하고 TIM을 선택 > 채널2를 `PWM Geberatuib CH2`로 선택한다.<br>이렇게 설정을 해주면 그 네모판 stm32에서 선택됬다고 초록색 불이 들어오면 성공이다.(PA7 PWM핀 설정한거임)
+#### 5. 클럭 설정해야할 거
+> ##### ![image](https://user-images.githubusercontent.com/80656700/185403772-672a57bf-dca7-463f-9b01-973d1e97c50c.png)<br>`Prescaler` 하고 `Period`가 중요함
+> . 이거 하기 전에 MCU 클럭 설정을 해야함.
+
+#### Prescaler & Period
+> ##### Prescaler
+> ##### - 속도를 느리게 해주는 것 | 클럭을 나눠줌
+> ##### Period
+> ##### - 주기를 정하는데 사용됨 ( Counter Period , Prescaler 이거 둘다 0부터 시작함 그래서 나중에 STM32에서 설정할 때 -1 을 해줘야함)
+> ##### timer Clock 설정할 때 등장함 예시를 들자면 84MHz로 설정을 하게 되면 | Prescaler : 84 -1 | Period : 1000-1 
+
+<a href="https://dkeemin.com/stm32f0xx-pwm-%EC%84%A4%EC%A0%95-%EB%B6%80%EB%A1%9D-%EC%84%A4%EB%AA%85/">자료 출처</a>
