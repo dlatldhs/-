@@ -84,3 +84,5 @@ document.getElementById("increment").addEventListener("click",()=> {
   store.dispatch(increment());
 });
 ```
+<a href="https://kyounghwan01.github.io/blog/React/redux/redux-toolkit/#redux-action">참고자료</a>
+<a href="https://velopert.com/3528">참고자료2</a>
