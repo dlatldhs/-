@@ -51,3 +51,36 @@
 > }
 > // component 에서 store한테 요청을 해야함 ( dispatch )
 > ```
+
+## 2. redux-toolkit
+### 사용이유
+> #### redux를 아무것도 없이 하면 actionType 정의 -> action 함수 정의 -> reducer 정의 이거를 해야함 => 너무많은 코드가 생성됨. 그래서 `redux-actions`( 코드 많아서 ) , `immer`( 불변성 원칙 ) , `reselect`( store 값 불필요 리렌더링 막고 핸들링 ) , `thunk` or `saga` ( 비동기 ) 위 4개 정도의 라이브러리를 사용함 근데 redux-toolkit은 redux가 공식적으로 만든거임. saga를 제외한 위 기능을 모두 지원함. TS도 지원함
+### 지원하는 기능( redux-toolkit이 )
+- #### 1. redux-action
+- #### 2. reselect
+- #### 3. immer( 안에 produce )
+- #### 4. redux-thunk
+- #### 5. Flux Standard Action 강제화
+- #### 6. Type Definition ( TS )
+### 1. redux-action
+```
+// createAction 사용
+const increment = createAction("INCREMENT");
+const decrement = createAction("DECREMENT");
+
+function counter( state = 0, action ) {
+  switch ( action.type ) {
+    case increment.type:
+      return ++state;
+    case decrement.type:
+      return --state;
+    default:
+      return state;
+  }
+}
+
+const store = configureStore ( { reducer: counter } );
+document.getElementById("increment").addEventListener("click",()=> {
+  store.dispatch(increment());
+});
+```
