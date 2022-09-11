@@ -84,5 +84,45 @@ document.getElementById("increment").addEventListener("click",()=> {
   store.dispatch(increment());
 });
 ```
+### 2. createSlice
+#### 이거 사용하면 createAction을 통해 자동으로 액션 타입을 정의하지 않아도 만들 수 있음
+```
+const name = "todo";
+type stateType = {
+  title: { name: string; content: number };
+};
+
+const initialState: stateType = {
+  title: { name: "ttttt", content: 0 },
+};
+
+export const todoSlice = createSlice({
+  name,
+  initialState,
+  reducers: {
+    setTitle: (
+      state,
+      action: PayloadAction<{ name: string; content: string }>
+    ) => {
+      state.title.name = action.payload.name;
+    },
+  },
+  extraReducers: {},
+});
+export const { setTitle } = todoSlice.actions;
+
+export default todoSlice.reducer;
+
+// 사용할 컴포넌트
+export function Counter() {
+  const dispatch = useDispatch();
+  return (
+    <button onClick={() => dispatch(setTitle({ name: 'hi' }, content: 'con' }))}>
+      setTitle
+    </button>
+  );
+}
+예제 코드 출처 : https://kyounghwan01.github.io/blog/React/redux/redux-toolkit/#createslice
+```
 <a href="https://kyounghwan01.github.io/blog/React/redux/redux-toolkit/#redux-action">참고자료</a>
 <a href="https://velopert.com/3528">참고자료2</a>
