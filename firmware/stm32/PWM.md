@@ -69,6 +69,22 @@ int main(void)
 ```
 가져온건데 이거 되는거 보려면 `오실로 스코프`가 필요함.
 
+```
+HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); // pwm on
+  while (1)
+  {
+	  htim2.Instance->CCR1 = 25; // 20ms 중 0.5ms H , 나머지 L   0.5 / 20 * auto reload( 1000 임 아까전에 설정한거 );
+	  HAL_Delay(500);
+	  htim2.Instance->CCR1 = 75; // 20ms 중 1.5ms H , 나머지 L : 1.5/20*1000
+	  HAL_Delay(500);
+	  htim2.Instance->CCR1 = 125; // 20ms 중 2.5ms H , 나머지 L : 2.5/20*1000
+	  HAL_Delay(500);
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+  }
+  ```
+
 #### Prescaler & Period
 > ##### Prescaler
 > ##### - 속도를 느리게 해주는 것 | 클럭을 나눠줌
