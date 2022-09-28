@@ -69,6 +69,18 @@ int main(void)
 ```
 가져온건데 이거 되는거 보려면 `오실로 스코프`가 필요함.
 
+### timer 사용하여 PWM로 서브모터 제어하기
+#### config
+
+#### 1-1 . Clock Source 설정하기
+![image](https://user-images.githubusercontent.com/80656700/192793919-b2d92d83-8bcb-4f12-9bdc-c04223ae4d9e.png)
+이거를 설정을 안해주면 1개 이상 사용을 못함
+#### 1-2 . Timer 설정하기
+![image](https://user-images.githubusercontent.com/80656700/192794880-20651d80-65bb-4478-b904-3d6f16008641.png)
+타이머 하나당 사용 가능한 모터 수는 4개 정도 됨 최대 4개
+![image](https://user-images.githubusercontent.com/80656700/192795203-ef26c1ba-2316-46fe-9c99-0f2544aa3beb.png)
+
+```HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); // pwm on``` 이 코드로 PWM 사용을 해줌
 ```
 HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); // pwm on
   while (1)
