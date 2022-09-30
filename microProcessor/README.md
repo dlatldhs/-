@@ -22,6 +22,7 @@
 #### <details markdown="1"><summary>stm에서 동기와 비동기</summary><p>동기 : clock 신호가 같아야 통신되는거<br>비동기 : Async 방식 , 송수신간의 동기를 맞추지 않고 문자단위로 구분하여 전송하는 방식</p></details>
 #### <details markdown="1"><summary>ADC</summary><p>: Analog senser Data 를 읽어주는 하드웨어</p></details>
 #### <details markdown="1"><summary>sampling</summary><p>1. sampling 이란?<br>일단 하드웨어 적으로 봤을 때 입력되는 값이 아날로그 값인데 이 아날로그 값이 0v ~ 3.3V 가되는데 이게 mcu로 가면 0 ~ 4095 단계로 나눔(12bit 임 &그리고 `디지털 값`이라서 4095단계로 나눈거)0부터 3.3v까지를를 0에서 4095단계로 나눔<br>아날로그 값을 디지털로 사용할 때 4096가지 중에 찾아야하는데 0부터(아니면 처음부터) 대입을 하면 오래 걸림 so 이진탐색을 함<br>이진 탐색을 해야 시간이 비교적 적음 but 시간 cpu 입장에서는 여전히 오래 걸림<br>이거를 `sampling time` 이라고 함 그래서 커패시터로 교류를 충전해서 비교함)<br>sampling time 을 짧게 주면 정확도가 낮아지지만 빠름<br>sampling time 을 많이 주면 정확도가 올라가지만 느림</p></details>
+#### <details markdown="1"><summary>Timer Clock 계산법</summary><p>1.Counter Period : 타이머의 주기를 결정하는 `최대`값 | 한번 진동하는데 얼마 정도 걸리는가<br>Prescaler : 타이머로 들어오는 APB1 , APB2 클럭을 나누기 위한 값 | Period를 얼마나 count 할 건지<br>tip: stm32에서는 설정을 할 때에는 0부터 count를 하기 때문에 설정하고 싶은 값에서 -1을 해줘야 됨</p></details>
 ### 잡다한 것
 > #### 1. 헤더파일을 만드는 이유
 > ##### 컴파일러(compiler)가 c 파일을 컴파일(compile)할 때 하나 씩 컴파일을 하는데 만약 `다른 곳에 정의된 함수`를 쓴다면 에러가 걸리기 때문에 헤더파일을 주면서 `다른곳에 정의된 함수`가 <i>여기서 제대로 쓰인게 맞는건지 확인</i>만 하고 `컴파일에 에러가 없게 만들기 위해서` 헤더파일이 존재하는거임
