@@ -30,3 +30,21 @@
 > 1. 최상위 비트가(MSB) 1이면 무조건 음수(-)로 해석한다
 > 2. 음수(-)일 경우 2의 보수와 절대값을 사용하여 추출한다.
 > 3. 정수의 전체 비트 수와 상관없이 동일하게 적용된다. 
+
+# 3. *_t 는 무슨 타입일까 ??
+> ### *_t , uint16_t , uint32_t 같은 이런 타입들을 `Primitive System Data type`라고 부름 이런 것들은 stdint.h 라는 헤더파일에서 찾을 수 있음
+> ```
+> #ifndef __int8_t_defined
+> # define __int8_t_defined
+> typedef signed char		int8_t;
+> typedef short int		int16_t;
+> typedef int				int32_t;
+> # if __WORDSIZE == 64
+> typedef long int		int64_t;
+> # else
+> __extension__
+> typedef long long int	int64_t;
+> # endif
+> #endif
+> ```
+> ##### 이런 Primitive System Data tpye 은 비트가 이름에도 있는 것 처럼 비트가 정해져있음 즉 고정되있음<br>이 말은 어떤 플랫폼 어떤 운영체제 에서도 프로그램을 실행하면 동일한 bit 수를 사용할 수 있다는 것임 -> word 가 다른 두 컴퓨터에서 임베디드 프로그래밍을 한다고 했을 때 둘다 word 크기가 다르기 때문에 int 크기도 다름 -> 근데 이거 쓰면 고정된 비트수를 할당할 수 있음
