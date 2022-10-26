@@ -1,0 +1,28 @@
+base line
+
+sysclock
+72mhz -< psc:72-1 -> cnt :1Mhz -> 16bit -> 2^16 = 65535  -> 1마이크로 s * 65535 
+
+overflow -> 값 초과            =update event -> interupt NVIC ->TIM_Handler -> User FUNCTION    
+underflow -> 값 보다 작을 때   = update event ->  ``
+
+ARR <--compare--> CNT ==> result -> interupt
+cnt가 arr랑 비교할 때에는 overflow 까지 안감 대신 ARR까지만 감
+
+CNT -> 1MHZ를 초로 바꾸면 10^-6 -> 1 마이크로 S 가 나옴 
+
+capture compare register -> ccr  얘는 주기를 바꾸느 얘 CNT랑 비교함 ARR을 통해서 count값이 업데이트가 된다면 CCR은 비교해서 일치 하면
+ccr은 cnt를 업데이트 안함 애는 GPIO에 output 회로쪽을 제어함... CCR=pulse arr값 보다 같거나 작음 한 주기를 기준으로 CCR 만큼 high로 유지함 high 구간이랑 low 구간 얘가 정하는 거임
+임계값 = ARR
+
+
+ccr output compare( toggle mode 주기를 주면 절반은 high 절반은 low가 됨 ) 
+CCR = Pluse
+
+clock 설정은 c type 과도 같음 -> 
+
+CCR1(10000) , 10KHz==100uHz
+
+CCR1 * 10KHz = 1Hz than toggle mode -> 0.5Hz 이거는 0.5/1 = 2초
+
+c언어에서 char a = 128을 넣고 a +1 을 해주면 -1 이 나옴
