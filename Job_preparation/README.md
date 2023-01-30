@@ -17,3 +17,6 @@
 ##### <details markdown="1"><summary>세션 방식과 JWT 방식</summary>`세션 인증방식과 토큰 인증 방식의 차이점`<br>세션 : 인증 정보가 서버에 저장되어 있는 상태 , Client는 쿠키 헤더에 세션 ID 를 같이 보낸다. 서버에서는 세션 ID를 받아서 이걸 활용하여 인증을 확인한다.<br>JWT(JSON WEB TOKEN) : 인증 정보를 모두 Client가 들고 있다. 그래서 서버에서는 세션 방식과 같이 받아서 확인을 하는 절차를 밟지 않아도 되기 때문에 부담이 덜 간다.(사용자가 많은 경우에 부담이 덜감) , 그리고 쿠키에 모든 정보(?)를 담아서 보냄 , 서버에서는 만료 시각이 지나지 않았는지만 확인하고 통과 시킴<br> 이러한 방식으로 인해서 JWT 는 많은 보안 이슈를 불러 일으킬 수 있음 , 근데 잘 만 하면 괜찮음</details>
 ##### <details markdown="1"><summary>매개변수와 인자의 차이점</summary>매개변수 : 함수를 정의할 때 사용되는 변수<br> 인자 : 실제로 함수가 호출될 때 넘기는 변수값<br> => 인자는 함수를 호출할 때 넣는 거를 의미함 , 매개변수는 함수입장에서 해석을 하는거임 ![image](https://user-images.githubusercontent.com/80656700/213203059-a36d050b-6b5b-4858-a7e2-dcf89f5d7203.png)
 </details>
+
+#### 임베
+##### <details markdown="1"><summary>chip 차이점</summary>1. SoC( System on Chip ) : chip 안에 IC 제어 , 연산장치 , 저장장치 , 입출력 장치 등이 싹 다 들어가 있는 chip. 보통 MCU 와 MPU에 많이 있음<br>2.CPU( Central Processing Unit ) : 산술 논리 연산 유닛인 ALU 와 명령어를 읽어오라고 해석하여 제ㅐ어하는 CU를 묶은 형태. 입출력은 CPU에서 제어를 하지만 CPU 자체는 I/O, memory 를 가지고 있지는 않다.(이게 중요한듯) 즉 CPU 는 자기 혼자서는 아무것도 못함</details>
