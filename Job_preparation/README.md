@@ -19,4 +19,4 @@
 </details>
 
 #### 임베
-##### <details markdown="1"><summary>chip 차이점</summary>1. SoC( System on Chip ) : chip 안에 IC 제어 , 연산장치 , 저장장치 , 입출력 장치 등이 싹 다 들어가 있는 chip. 보통 MCU 와 MPU에 많이 있음<br>2.CPU( Central Processing Unit ) : 산술 논리 연산 유닛인 ALU 와 명령어를 읽어오라고 해석하여 제ㅐ어하는 CU를 묶은 형태. 입출력은 CPU에서 제어를 하지만 CPU 자체는 I/O, memory 를 가지고 있지는 않다.(이게 중요한듯) 즉 CPU 는 자기 혼자서는 아무것도 못함</details>
+##### <details markdown="1"><summary>chip 차이점</summary>1. SoC( System on Chip ) : chip 안에 IC 제어 , 연산장치 , 저장장치 , 입출력 장치 등이 싹 다 들어가 있는 chip. 보통 MCU 와 MPU에 많이 있음<br>2.CPU( Central Processing Unit ) : 산술 논리 연산 유닛인 ALU 와 명령어를 읽어오라고 해석하여 제ㅐ어하는 CU를 묶은 형태. 입출력은 CPU에서 제어를 하지만 CPU 자체는 I/O, memory 를 가지고 있지는 않다.(이게 중요한듯) 즉 CPU 는 자기 혼자서는 아무것도 못함<br>3. MPU (micro processing Unit) : CPU의 축소판이다. CPU와 마찬가지로 I/O , memory를 가지고 있지 않다. CL + ALU 형태이며 임베디드 쪽으로 주로 사용됨.<br> MCU(Micro Controller Unit) : 대표적인 SoC 형태로 Chip 안에 CU , ALU , I/O , Memory 를 모두 가지고 있다. 추가적인 로직 회로 없이 모든 것을 chip 하나로 해결할 수 있기에 PCB 보드의 부피를 줄일 수 있따. MICOM 이라고도 부른다. MICOM = MCU</details>
