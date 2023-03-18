@@ -520,3 +520,175 @@ fill()
 - fill( 시작값 , 끝값 , 초기화 하는 값 ) 으로 사용함
 - 모든 값으로 초기화 가능
 - [first,last)] 까지 val로 초기화함
+
+`sort( first , last , custome_compare_function )`
+
+`first , last 는 필수 , 3번째는 커스텀하게 비교하고 싶을 때 넣음`
+
+- first : 배열의 첫번째 이터레이터
+- last : 정렬하고 픈 배열의 마지막 다음의 이터레이터
+- 범위  → [ first , last ) → first 는 포함 , last 는 포함 X
+- 예시 ) 크기가 5인 ary를 정렬한다 → sort(ary[0] , ary[0] +5 ) , 마지막 원소 ary[0]+4가 아닌 그 원소의 다음 위치를 가르킴
+- default 값이 오름차순
+- 3번째에 greater<int>() 을 넣으면 내림차순 , less<int>() 을 넣으면 오름차순
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> a;
+int b[5];
+int main(){
+
+	for(int i = 5; i >= 1; i--) b[i - 1] = i;
+	for(int i = 5; i >= 1; i--) a.push_back(i);
+	
+	// 오름차순
+	sort(b, b + 5);
+	sort(a.begin(),a.end());
+
+	for(int i : b) cout << i << ' ';
+	cout << '\n';
+	for(int i : a) cout << i << ' ';
+	cout << '\n';
+	
+	sort(b, b + 5, less<int>());
+	sort(a.begin(),a.end(), less<int>());
+	
+	for(int i : b) cout << i << ' ';
+	cout << '\n';
+	for(int i : a) cout << i << ' ';
+	cout << '\n';
+	
+	//내림차순
+	sort(b, b + 5, greater<int>());
+	sort(a.begin(),a.end(), greater<int>());
+	
+	for(int i : b) cout << i << ' ';
+	cout << '\n';
+	for(int i : a) cout << i << ' ';
+	cout << '\n';
+	
+	return 0;
+}
+/* 
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+5 4 3 2 1
+5 4 3 2 1
+*/
+```
+
+### 활용  sort()
+
+---
+
+pair 를 기반으로 만들어진 vector의 경우 따로 설정 안하면 
+
+first , second , third 순으로 오름차순 정렬됨
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+vector<pair<int , int >> v;
+int main() {
+	for ( int i = 10 ; i >= 1; i-- ) {
+		v.push_back({i,10-i});
+	}
+	sort(v.begin(),v.end()); // 참고로 v.end()는 끝 다음의 위치를 반환함
+	for ( auto it : v ) cout << it.first << " : " << it.second << "\n";
+	// vector v 에 있는 Elements 들을 끄집어내서 순회한다.
+	return 0;
+}
+/*
+1: 9
+2 : 8
+3 : 7
+4 : 6
+5 : 5
+6 : 4
+7 : 3
+8 : 2
+9 : 1
+10 : 0
+*/
+```
+
+내림차순 정렬 → 커슽머 연산자 제작 
+
+sort 함수에 3번째 인자는 커스텀 오퍼레이터를 넣는 인자
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+vector<pair<int,int>> v;
+bool cmp(pair<int,int> a, pair<int,int> b) {
+	return a.first > b.first;
+}
+int main() {
+	for ( int i=10; i>=1 ; i-- ) {
+		v.push_back({i,10-i});
+	}
+	sort(v.begin(),v.end(),cmp);
+	for ( auto it : v ) cout << it.first << " : " << it.second << "\n";
+	return 0;
+}
+/*
+10 : 0
+9 : 1
+8 : 2
+7 : 3
+6 : 4
+5 : 5
+4 : 6
+3 : 7
+2 : 8
+1 : 9
+*/
+```
+
+### 참고 지식
+
+function sum ( number 1, number2 ) 할 때 number1 과 number2가 매개변수(parameter) 이다.
+
+sum( 4, 3) 에서 4 와 3이 인자(argument) 라고 부른다.
+
+**unique()**
+
+안에 돌면서 중복제거하는 거 예시 )⇒ { 1 , 1 , 2 , 2 , 3 , 3 } → uinque() → { 1 , 2 , 3 , 2 , 3 , 3 }
+
+앞에서부터 중복 요소 제거하고 , 중복이 아닌 것들만 정렬함 , 나머지는 걍 고대로 둠
+
+unique() 함수로 중복되지 않는 배열을 만들기 위해서는 sort() 정렬을 하고 해야됨
+
+왜냐하면 얘는 앞에서부터 중복 검사를 하기 때문에 뒤에 같은게 있으면 제거 안해서 조금 그럼
+
+unique() 함수는 자신이 정렬한 첫번째 이터레이터를 반환
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	vector<int> s {4, 3, 3, 5, 1, 2, 3};
+	s.erase(unique(s.begin(),s.end()),s.end()); // s.begin ~ s.end 까지 unique 정렬 시키고
+	// unique() 함수는 자신이 정렬한 첫번째 이터레이터를 반환 그리고 end는 컨테이너 끝 다음의
+	// 위치를 반환해서 됨
+	for(int i : s) cout << i << " ";
+	cout << '\n';
+	vector<int> s2 {4, 3, 3, 5, 1, 2, 3};
+	sort(s2.begin(), s2.end());
+	s2.erase(unique(s2.begin(),s2.end()),s2.end());
+	for(int i : s2) cout << i << " ";
+	return 0;
+}
+/*
+4 3 5 1 2 3
+1 2 3 4 5
+*/
+```
