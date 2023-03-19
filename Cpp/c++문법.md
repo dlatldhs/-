@@ -692,3 +692,62 @@ int main(){
 1 2 3 4 5
 */
 ```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b698731-9772-49cf-b676-ebdc58be1308/Untitled.png)
+
+반드시 정렬된 배열에서 사용해야됨
+
+예제 코드
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main(){
+	vector<int> a {1, 2, 3, 3, 3, 4};
+	cout << lower_bound(a.begin(), a.end(), 3) - a.begin() <<
+	"\n"; // 2
+	cout << upper_bound(a.begin(), a.end(), 3) - a.begin() <<
+	"\n"; // 5
+	return 0;
+	}
+```
+
+lower_bound() : 3을 찾는다면 , 3이 시작되는 최소 시작점
+
+upper_bound() : 위와 같이 한다면 , 이를 초과하는 지점
+
+둘다 이터레이터 즉 위치를 반환하기 때문에 어느 배열에 위치하고 있는지를 알려면 배열의 주소
+
+자체의 원본의 주소를 빼야함
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main(){
+	vector<int> a {1, 2, 3, 3, 3, 4};
+	cout << &*lower_bound(a.begin(), a.end(), 3)<< "\n"; // 0xd21518
+	cout << &*a.begin()<< "\n"; // 0xd21510
+	cout << &*(a.begin() + 1)<< "\n"; // 0xd21514
+	return 0;
+}
+```
+
+첫번째는 원본의 배열에서 8byte 차이남 , 그리고 세번째 줄은 원본의 배열에서 4byte 차이남
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+vector<int> a {1, 2, 3, 3, 4, 100};
+int main(){
+	cout << *lower_bound(a.begin(), a.end(), 100)<< "\n";
+	return 0;
+}
+/*
+100
+*/
+```
+
+이렇게 하면 요소를 출력할 수 있음
