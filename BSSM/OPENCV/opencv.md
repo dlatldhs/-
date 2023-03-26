@@ -15,18 +15,18 @@ cv2.destroyAllWindows() # 모든 OpenCV 창을 닫는다.
 #### computer vision
 > muchine vision -> 영상처리 이용 ( PCB 납땜이 잘 되어 있는지 검사) , 자동화 분석
 > image processing( 화소 처리 picture processing) 라고도 함 : 디지털화된 신호를 원하는 목적에 맞게 처리를 하기 위한 방법 , 의료쪽에서도 쓰임( 어두운 폐 사진 같은거 밝고 선명하게)
-> 스테레오 카메라 : 좌우배치한 카메라
-> SLAM: 영상을 통해 위치를 찾고 지도를 만들어가느 기술
-> NCC , SURF : 패턴 인식 알고리즘
-> 셔터 스피드 : 카메라 열리고 닫히는 시간
-> Bayer Pattern
-> ![image](https://user-images.githubusercontent.com/80656700/227781906-b61b4d2c-60f0-4819-aacb-335ade62a477.png) <br> 에너지 -> (카메라 필터) -> ADC => 전하
-> light -> object -> camera -> ADC -> digital data -> memory 저장
-> ccd: 비싼데 화질이 좋음 , cmos : 발열이 적고 저렴 , 화질 조금 좋음 , ccd는 글로벌 셔터를 사용하고 cmos 는 롤링 셔터를 사용함
-> 글로벌 셔터 -> 동시에 셔터를 열고 / 닫음
-> 롤링 셔터 -> 위에서 부터 한줄 한줄 (사진을) 읽어들임
-> 핀돌 카메라 모델 : 상이 뒤집혀서 찍힘 (초점거리) , 초점거리 를 제어하면 멀리있는 것을 크게 볼수 있음
-> sampleing(샘플링) -> 해상도에 영향 , 픽셀이 얼마나 촘촘하게 설계 되어 있는지
+> 스테레오 카메라 : 좌우배치한 카메라<br>
+> SLAM: 영상을 통해 위치를 찾고 지도를 만들어가느 기술<br>
+> NCC , SURF : 패턴 인식 알고리즘<br>
+> 셔터 스피드 : 카메라 열리고 닫히는 시간<br>
+> Bayer Pattern<br>
+> ![image](https://user-images.githubusercontent.com/80656700/227781906-b61b4d2c-60f0-4819-aacb-335ade62a477.png) <br> 에너지 -> (카메라 필터) -> ADC => 전하<br>
+> light -> object -> camera -> ADC -> digital data -> memory 저장<br>
+> ccd: 비싼데 화질이 좋음 , cmos : 발열이 적고 저렴 , 화질 조금 좋음 , ccd는 글로벌 셔터를 사용하고 cmos 는 롤링 셔터를 사용함<br>
+> 글로벌 셔터 -> 동시에 셔터를 열고 / 닫음<br>
+> 롤링 셔터 -> 위에서 부터 한줄 한줄 (사진을) 읽어들임<br>
+> 핀돌 카메라 모델 : 상이 뒤집혀서 찍힘 (초점거리) , 초점거리 를 제어하면 멀리있는 것을 크게 볼수 있음<br>
+> sampleing(샘플링) -> 해상도에 영향 , 픽셀이 얼마나 촘촘하게 설계 되어 있는지<br>
 > 양자화(Quatization) 밝기를 몇 단계로 표현할 것인가 ?
 ----
 
