@@ -1,8 +1,0 @@
-일반 계정에서 잡업하다가
-super do 즉 su 계정 관리자 계정으로 넘어가서 작업을 하게 되면
-경로가
-/home/username/study
-가
-/root/study
-이렇게 되는데
-그대로 복사된 개념임

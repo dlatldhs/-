@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    
+    <form action='http://localhost:8080/gpp' method='post' enctype="multipart/form-data">
+        <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)" value="보내기" >
+        <input type="submit" value="전송">
+    </form>
+    <form action='http://localhost:8080/gpp' method='post'>
+        <p><input type="text" id="imgsrc" value="" name="il" /></p>
+        <input type="submit" value="전송">
+    </form>
+    {% if result1 %}
+    {{ result1 }}
+    {% endif %}
+    {% if img %}
+    {{ img }}
+    {% endif %}
+    {% if Textttt %}
+    {{ Textttt }}
+    {% endif %}
+{% endblock %}

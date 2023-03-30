@@ -1,0 +1,13 @@
+gedit abc.txt &     // <-- 이렇게 하면 됨 터미널을 사용할 수 있음
+gedit <- 터미널에서 notepad 하면 나오듯이 메모장하고 비슷한 개념임
+
+init (상태를 나타내는 명령어)
+ex ) init 0 하면 종료 됨
+
+vi 로 만든 파일을 gedit으로도 들어갈 수 있음
+q = quit
+w = write
+! = 강제성 부여
+
+내용 저장을 위해 
+:w test2.txt 이렇게도 할 수 있음
