@@ -870,3 +870,34 @@ int main(){
 }
 ```
 
+### map , vector graph
+```cpp
+// Q: 3*3 맵 입력, 맵 1과0 으로 이루어 져있고{0,0}은 무조건 1, 방문한 정점은 다시 방문하지 않으며 방문하는 좌표를 출력하는 코드 구현하기
+#include <bits/stdc++.h>
+using namespace std;
+const int V = 3;
+int a[V][V], visited[V][V];
+const int dy[] = {-1,0,1,0};
+const int dx[] = {0,1,0,-1};
+void go ( int y , int x ) {
+    visited[y][x] = 1; // 방문
+    cout << y << " : " << x << "\n";
+    for ( int i = 0 ; i < 4 ; i++ ) {
+        int ny = y + dy[i];
+        int nx = x + dy[i];
+        if(ny < 0 || ny >= 3 || nx < 0 || nx >= 3) continue;
+        if(a[ny][nx] == 0) continue;
+        if(visited[ny][nx]) continue;
+        go(ny, nx);
+    }
+    
+}
+int main() {
+    for ( int i = 0 ; i < 3 ; i++ ) {
+        for ( int j = 0 ; j < 3 ; j++ ) {
+            cin >> a[i][j];
+        }
+    }
+    go(0,0);
+}
+```
